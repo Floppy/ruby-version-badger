@@ -1,5 +1,6 @@
 use iron::prelude::*;
-use iron::status;
+use iron::{Url, status};
+use iron::modifiers::Redirect;
 use router::Router;
 use https;
 
@@ -19,10 +20,11 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     let version = parse_gemfile(gemfile);
     
     // Create URL
-    let badge_url = format!("https://img.shields.io/badge/ruby-{}-lightgray.svg", version);
+    let badge = format!("https://img.shields.io/badge/ruby-{}-lightgray.svg", version);
+    let badge_url = Url::parse(&badge).unwrap();
     
     // Send response
-    Ok(Response::with((status::Ok, badge_url)))
+    Ok(Response::with((status::Found, Redirect(badge_url))))
 }
 
 fn parse_gemfile(gemfile: String) -> String {
