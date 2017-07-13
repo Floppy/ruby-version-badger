@@ -1,6 +1,7 @@
 extern crate iron;
 extern crate router;
 extern crate staticfile;
+extern crate regex;
 
 extern crate futures;
 extern crate hyper;
