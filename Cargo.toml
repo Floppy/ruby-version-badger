@@ -7,3 +7,4 @@ authors = ["James Smith <james@floppy.org.uk>"]
 iron = "0.5.*"
 router = "*"
 staticfile = "*"
+hyper = "*"
