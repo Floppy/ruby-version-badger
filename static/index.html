@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+</body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-3">Ruby Version Badger</h1>
+      <p class="lead">Badges to show whether your Ruby versions are up to date.</p>
+      <hr class="my-4">
+      <p>They look like this:</p>
+      <ul>
+        <li>
+          <img src='https://img.shields.io/badge/ruby-2.4.1-brightgreen.svg' />
+          The very highest Ruby stable version will show as green. You should be using this.
+        </li>
+        <li>
+          <img src='https://img.shields.io/badge/ruby-2.3.4-yellow.svg' />
+          The latest patch of previous versions still being supported will be yellow. Think about upgrading.
+        </li>
+        <li>
+          <img src='https://img.shields.io/badge/ruby-2.4.0-red.svg' />
+          Everything else will be red. It's either been patched, or isn't supported any more. Update it!
+        </li>
+      </ul>
+    </div>
+    <p>
+      To get a badge for your GitHub repository, just use the following image URL format in your README, or similar:
+    </p>
+    <code>
+      https://ruby-version-badger.herokuapp.com/github/{username}/{repository}
+    </code>
+    <p>
+      We'll analyse your repsitory and show the right badge (in SVG). We check the following files, in order:
+    </p>
+    <ol>
+      <li><code>Gemfile</code>: we'll read the version in the format <code>ruby "2.4.1"</code>.
+      <li><code>.ruby-version</code>: as used by rbenv and RVM.
+    </ol>
+    <p>
+      Other methods like <code>#ruby=2.4.1</code> in the <code>Gemfile</code>,
+      <code>.rvmrc</code> and <code>.versions.conf</code> are only used by RVM,
+      so aren't supported. The two methods above are supported by many more tools,
+      so we'd prefer you used those.
+    </p>
+    <hr class="my-4">
+    <p>
+      This is an open source tool, provided for free without any promises. To get
+      involved in making it better, look at the
+      <a href='https://github.com/Floppy/ruby-version-badger'>GitHub project</a>.
+      It's written in Rust (as a bit of fun), and open source under the MIT license.
+    </p>
+  </div>
+</body>
+

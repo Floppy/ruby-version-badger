@@ -6,3 +6,4 @@ authors = ["James Smith <james@floppy.org.uk>"]
 [dependencies]
 iron = "0.5.*"
 router = "*"
+staticfile = "*"
