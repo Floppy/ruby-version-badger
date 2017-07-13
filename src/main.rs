@@ -1,18 +1,9 @@
 extern crate iron;
 
+mod config;
+
 use iron::prelude::*;
 use iron::status;
-
-use std::env;
-
-fn port() -> String {
-    let mut p = String::from("3000");
-    match env::var("PORT") {
-        Ok(val) => p = val,
-        Err(_e) => println!("using default port {}",  p),
-    }
-    return p;
-}
 
 fn main() {
 
@@ -20,7 +11,7 @@ fn main() {
         Ok(Response::with((status::Ok, "Hello World!")))
     }
 
-    let url = format!("0.0.0.0:{}", ::port());
+    let url = format!("0.0.0.0:{}", config::port());
 
     println!("Binding on {:?}", url);
     Iron::new(hello_world).http(&url[..]).unwrap();
