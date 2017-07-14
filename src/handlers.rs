@@ -19,8 +19,23 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     // Get ruby version
     let version = parse_gemfile(gemfile);
     
+    // Check version and set colour
+    let mut colour = "red";
+    if version == "2.4.1" {
+        // current
+        colour = "brightgreen";
+    }
+    else if version == "2.3.4" {
+        // previous but in lifetime
+        colour = "yellow";
+    }
+    else if version == "2.2.7" {
+        // approaching EOL
+        colour = "orange";
+    }
+
     // Create URL
-    let badge = format!("https://img.shields.io/badge/ruby-{}-lightgray.svg", version);
+    let badge = format!("https://img.shields.io/badge/ruby-{}-{}.svg", version, colour);
     let badge_url = Url::parse(&badge).unwrap();
     
     // Send response
