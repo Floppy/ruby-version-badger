@@ -53,14 +53,11 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
 }
 
 fn parse_gemfile(gemfile: String) -> String {
-    if gemfile == "" {
-        return gemfile;
-    }
     let re = Regex::new("ruby [\"\'](.*?)[\"\']").unwrap();
-    let mut str = "";
+    let mut s;
     match re.captures(&gemfile) {
-        Some(caps) => str = caps.get(1).map_or("", |m| m.as_str()),
-        None => str = ""
+        Some(caps) => s = caps.get(1).map_or("", |m| m.as_str()),
+        None => s = ""
     }    
-    String::from(str)
+    String::from(s)
 }
