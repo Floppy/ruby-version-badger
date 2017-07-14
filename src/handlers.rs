@@ -44,8 +44,8 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
         colour = "lightgray";
     }
 
-    // Create URL
-    let badge = format!("https://img.shields.io/badge/ruby-{}-{}.svg", version, colour);
+    // Create URL (without dashes in the version)
+    let badge = format!("https://img.shields.io/badge/ruby-{}-{}.svg", version.replace("-", ""), colour);
     let badge_url = Url::parse(&badge).unwrap();
     
     // Send response
