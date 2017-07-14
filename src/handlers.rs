@@ -12,12 +12,17 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     let ref user = req.extensions.get::<Router>().unwrap().find("user").unwrap_or("");
     let ref repo = req.extensions.get::<Router>().unwrap().find("repo").unwrap_or("");
         
-    // Get a file
+    // Get ruby version from Gemfile
     let url = String::from(format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo));
     let gemfile = https::get(url);
+    let mut version = parse_gemfile(gemfile);
     
-    // Get ruby version
-    let version = parse_gemfile(gemfile);
+    // fall back to .ruby-version
+    if version == "" {
+        // Get a file
+        let url = String::from(format!("https://raw.githubusercontent.com/{}/{}/master/.ruby-version", user, repo));
+        version = https::get(url);
+    }
     
     // Check version and set colour
     let mut colour = "red";
@@ -33,6 +38,11 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
         // approaching EOL
         colour = "orange";
     }
+    else if version == "" {
+        // unknown
+        version = String::from("unknown");
+        colour = "lightgray";
+    }
 
     // Create URL
     let badge = format!("https://img.shields.io/badge/ruby-{}-{}.svg", version, colour);
@@ -43,8 +53,14 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
 }
 
 fn parse_gemfile(gemfile: String) -> String {
+    if gemfile == "" {
+        return gemfile;
+    }
     let re = Regex::new("ruby [\"\'](.*?)[\"\']").unwrap();
-    let caps = re.captures(&gemfile).unwrap();
-    let str = caps.get(1).map_or("", |m| m.as_str());
+    let mut str = "";
+    match re.captures(&gemfile) {
+        Some(caps) => str = caps.get(1).map_or("", |m| m.as_str()),
+        None => str = ""
+    }    
     String::from(str)
 }

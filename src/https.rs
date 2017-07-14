@@ -20,5 +20,5 @@ pub fn get(url: String) -> String {
         resp.body().concat2()
     }).map(|chunk| str::from_utf8(&chunk).unwrap().to_string());
     // Actually run the damn thing
-    core.run(request).unwrap()
+    core.run(request).unwrap_or(String::from(""))
 }
