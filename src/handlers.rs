@@ -56,7 +56,7 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
 }
 
 fn parse_gemfile(gemfile: String) -> String {
-    let re = Regex::new("ruby [\"\'](.*?)[\"\']").unwrap();
+    let re = Regex::new("^\\s*ruby\\s*[\"'](.*?)[\"']").unwrap();
     let mut s;
     match re.captures(&gemfile) {
         Some(caps) => s = caps.get(1).map_or("", |m| m.as_str()),
