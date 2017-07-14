@@ -21,7 +21,7 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     if version == "" {
         // Get a file
         let url = String::from(format!("https://raw.githubusercontent.com/{}/{}/master/.ruby-version", user, repo));
-        version = https::get(url);
+        version = String::from(https::get(url).trim());
     }
     
     // Check version and set colour
