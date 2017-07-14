@@ -16,15 +16,18 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     let url = String::from(format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo));
     let gemfile = https::get(url);
     let mut version = parse_gemfile(gemfile);
+    println!("version from Gemfile: '{}'", version);
     
     // fall back to .ruby-version
     if version == "" {
         // Get a file
         let url = String::from(format!("https://raw.githubusercontent.com/{}/{}/master/.ruby-version", user, repo));
         version = String::from(https::get(url).trim());
+        println!("version from .ruby-version: '{}'", version);
     }
     
     // Check version and set colour
+    println!("version being checked: '{}'", version);
     let mut colour = "red";
     if version == "2.4.1" {
         // current
@@ -38,7 +41,7 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
         // approaching EOL
         colour = "orange";
     }
-    else if version == "" {
+    else if version == "" || version == "404: Not Found" {
         // unknown
         version = String::from("unknown");
         colour = "lightgray";
