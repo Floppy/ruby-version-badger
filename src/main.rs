@@ -12,6 +12,7 @@ mod config;
 mod https;
 mod server;
 mod handlers;
+mod ruby;
 
 fn main() {
     server::serve();
