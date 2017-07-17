@@ -1,12 +1,7 @@
 use std::env;
 
 pub fn port() -> String {
-    let mut p = String::from("3000");
-    match env::var("PORT") {
-        Ok(val) => p = val,
-        Err(_e) => println!("using default port {}",  p),
-    }
-    return p;
+    env::var("PORT").unwrap_or("3000".to_string())
 }
 
 
