@@ -3,8 +3,7 @@ use iron::{Url, status};
 use iron::modifiers::Redirect;
 use router::Router;
 use https;
-
-use regex::Regex;
+use ruby;
 
 pub fn github(req: &mut Request) -> IronResult<Response> {
     
@@ -15,7 +14,7 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     // Get ruby version from Gemfile
     let url = String::from(format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo));
     let gemfile = https::get(url);
-    let mut version = parse_gemfile(gemfile);
+    let mut version = ruby::version_from_gemfile(gemfile);
     println!("version from Gemfile: '{}'", version);
     
     // fall back to .ruby-version
@@ -25,26 +24,10 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
         version = String::from(https::get(url).trim());
         println!("version from .ruby-version: '{}'", version);
     }
-    
-    // Check version and set colour
-    println!("version being checked: '{}'", version);
-    let mut colour = "red";
-    if version == "2.4.1" {
-        // current
-        colour = "brightgreen";
-    }
-    else if version == "2.3.4" {
-        // previous but in lifetime
-        colour = "yellow";
-    }
-    else if version == "2.2.7" {
-        // approaching EOL
-        colour = "orange";
-    }
-    else if version == "" || version == "404: Not Found" {
-        // unknown
+
+    let colour = ruby::colour(version.to_string());
+    if colour == "lightgray" {
         version = String::from("unknown");
-        colour = "lightgray";
     }
 
     // Create URL (without dashes in the version)
@@ -53,14 +36,4 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     
     // Send response
     Ok(Response::with((status::Found, Redirect(badge_url))))
-}
-
-fn parse_gemfile(gemfile: String) -> String {
-    let re = Regex::new("^\\s*ruby\\s*[\"'](.*?)[\"']").unwrap();
-    let mut s;
-    match re.captures(&gemfile) {
-        Some(caps) => s = caps.get(1).map_or("", |m| m.as_str()),
-        None => s = ""
-    }    
-    String::from(s)
 }
