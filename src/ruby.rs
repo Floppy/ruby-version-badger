@@ -1,3 +1,5 @@
+use regex::Regex;
+
 pub fn colour(version: String) -> String {
     // Check version and set colour    
     match version.as_ref() {
@@ -9,6 +11,15 @@ pub fn colour(version: String) -> String {
         _                => "red",
     }.to_string()
 }
+
+pub fn version_from_gemfile(gemfile: String) -> String {
+    let re = Regex::new("^\\s*ruby\\s*[\"'](.*?)[\"']").unwrap();
+    match re.captures(&gemfile) {
+        Some(caps) => caps.get(1).map_or("", |m| m.as_str()),
+        None => ""
+    }.to_string()
+}
+
 
 #[cfg(test)]
 mod tests {
