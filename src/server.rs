@@ -7,9 +7,9 @@ use handlers;
 
 pub fn serve() {    
     let interface = format!("0.0.0.0:{}", config::port());
-    println!("Binding on {:?}", interface);
+    info!("Binding on {:?}", interface);
     Iron::new(router()).http(&interface[..]).unwrap();
-    println!("Bound on {:?}", interface);
+    info!("Bound on {:?}", interface);
 }
 
 fn router () -> Router {

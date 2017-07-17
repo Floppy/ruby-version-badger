@@ -15,14 +15,14 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     let url = format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo);
     let gemfile = https::get(url);
     let mut version = ruby::version_from_gemfile(gemfile);
-    println!("version from Gemfile: '{}'", version);
+    debug!("version from Gemfile: '{}'", version);
     
     // fall back to .ruby-version
     if version == "" {
         // Get a file
         let url = format!("https://raw.githubusercontent.com/{}/{}/master/.ruby-version", user, repo);
         version = String::from(https::get(url).trim());
-        println!("version from .ruby-version: '{}'", version);
+        debug!("version from .ruby-version: '{}'", version);
     }
 
     let colour = ruby::colour(version.to_string());

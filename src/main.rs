@@ -1,3 +1,6 @@
+#[macro_use] extern crate log;
+extern crate env_logger;    
+    
 extern crate iron;
 extern crate router;
 extern crate staticfile;
@@ -15,5 +18,7 @@ mod handlers;
 mod ruby;
 
 fn main() {
+    env_logger::init();
+    info!("starting server");
     server::serve();
 }
