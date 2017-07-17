@@ -12,7 +12,7 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     let ref repo = req.extensions.get::<Router>().unwrap().find("repo").unwrap_or("");
         
     // Get ruby version from Gemfile
-    let url = String::from(format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo));
+    let url = format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo);
     let gemfile = https::get(url);
     let mut version = ruby::version_from_gemfile(gemfile);
     println!("version from Gemfile: '{}'", version);
@@ -20,7 +20,7 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     // fall back to .ruby-version
     if version == "" {
         // Get a file
-        let url = String::from(format!("https://raw.githubusercontent.com/{}/{}/master/.ruby-version", user, repo));
+        let url = format!("https://raw.githubusercontent.com/{}/{}/master/.ruby-version", user, repo);
         version = String::from(https::get(url).trim());
         println!("version from .ruby-version: '{}'", version);
     }
