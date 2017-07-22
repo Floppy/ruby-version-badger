@@ -16,6 +16,7 @@ mod https;
 mod server;
 mod handlers;
 mod ruby;
+mod rust;
 
 fn main() {
     env_logger::init();
