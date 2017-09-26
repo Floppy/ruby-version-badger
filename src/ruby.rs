@@ -32,16 +32,16 @@ mod tests {
 
     #[test]
     fn current_versions_are_green() {
-        assert_eq!("brightgreen", ruby::colour(String::from("2.4.1")));
+        assert_eq!("brightgreen", ruby::colour(String::from("2.4.2")));
     }
 
     #[test]
     fn supported_versions_are_yellow() {
-        assert_eq!("yellow", ruby::colour(String::from("2.3.4")));
+        assert_eq!("yellow", ruby::colour(String::from("2.3.5")));
     }
 
     #[test]
     fn ending_versions_are_orange() {
-        assert_eq!("orange", ruby::colour(String::from("2.2.7")));
+        assert_eq!("orange", ruby::colour(String::from("2.2.8")));
     }
 }
