@@ -19,6 +19,6 @@ mod tests {
 
     #[test]
     fn current_versions_are_green() {
-        assert_eq!("brightgreen", rust::colour(String::from("1.19.0")));
+        assert_eq!("brightgreen", rust::colour(String::from("1.20.0")));
     }
 }
