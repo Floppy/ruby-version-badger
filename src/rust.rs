@@ -1,7 +1,7 @@
 pub fn colour(version: String) -> String {
     // Check version and set colour    
     match version.as_ref() {
-        "1.19.0"         => "brightgreen",
+        "1.20.0"         => "brightgreen",
         ""               => "lightgray",
         "404: Not Found" => "lightgray",
         _                => "red",
