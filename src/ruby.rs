@@ -3,9 +3,10 @@ use regex::Regex;
 pub fn colour(version: String) -> String {
     // Check version and set colour    
     match version.as_ref() {
-        "2.4.2"          => "brightgreen",
-        "2.3.5"          => "yellow",
-        "2.2.8"          => "orange",
+        "2.5.0"          => "brightgreen",
+        "2.4.3"          => "yellow",
+        "2.3.6"          => "yellow",
+        "2.2.9"          => "orange",
         ""               => "lightgray",
         "404: Not Found" => "lightgray",
         _                => "red",
