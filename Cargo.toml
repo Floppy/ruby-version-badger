@@ -1,7 +1,7 @@
 [package]
 name = "ruby-version-badger"
 version = "0.1.1"
-target = "1.23.0"
+target = "1.24.1"
 authors = ["James Smith <james@floppy.org.uk>"]
 
 [dependencies]
