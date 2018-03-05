@@ -2,36 +2,27 @@ use iron::prelude::*;
 use iron::{Url, status};
 use iron::modifiers::Redirect;
 use router::Router;
-use https;
 use ruby;
 
 pub fn github(req: &mut Request) -> IronResult<Response> {
     
     // Get user and repo
-    let ref user = req.extensions.get::<Router>().unwrap().find("user").unwrap_or("");
-    let ref repo = req.extensions.get::<Router>().unwrap().find("repo").unwrap_or("");
+    let user = req.extensions.get::<Router>().unwrap().find("user").unwrap_or("").to_string();
+    let repo = req.extensions.get::<Router>().unwrap().find("repo").unwrap_or("").to_string();
         
-    // Get ruby version from Gemfile
-    let url = format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo);
-    let gemfile = https::get(url);
-    let mut version = ruby::version_from_gemfile(gemfile);
-    debug!("version from Gemfile: '{}'", version);
-    
-    // fall back to .ruby-version
-    if version == "" {
-        // Get a file
-        let url = format!("https://raw.githubusercontent.com/{}/{}/master/.ruby-version", user, repo);
-        version = String::from(https::get(url).trim());
-        debug!("version from .ruby-version: '{}'", version);
-    }
+    let mut version = "unknown".to_string();
+    let mut language = "language".to_string();
+    let mut colour = "lightgray".to_string();
 
-    let colour = ruby::colour(version.to_string());
-    if colour == "lightgray" {
-        version = String::from("unknown");
+    // Detect language
+    if ruby::detected(&user, &repo) {
+        language = "ruby".to_string();
+        version = ruby::version(&user, &repo);
+        colour = ruby::colour(&version);
     }
 
     // Create URL (without dashes in the version)
-    let badge = format!("https://img.shields.io/badge/ruby-{}-{}.svg", version.replace("-", ""), colour);
+    let badge = format!("https://img.shields.io/badge/{}-{}-{}.svg", language, version.replace("-", ""), colour);
     let badge_url = Url::parse(&badge).unwrap();
     
     // Send response
