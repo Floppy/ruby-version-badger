@@ -1,4 +1,38 @@
-pub fn colour(version: String) -> String {
+use regex::Regex;
+use reqwest;
+
+pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
+    let url = format!("https://raw.githubusercontent.com/{}/{}/master/Cargo.toml", user, repo);
+    let resp = reqwest::get(url.as_str())?;
+    return Ok(resp.status().is_success());
+}
+
+pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
+    let mut version = "unknown".to_string();
+    // Get ruby version from Gemfile
+    let url = format!("https://raw.githubusercontent.com/{}/{}/master/Cargo.toml", user, repo);
+    let cargo = reqwest::get(url.as_str())?.text()?;
+    version = version_from_cargo(cargo);
+    debug!("version from Cargo.toml: '{}'", version);    
+    // fall back to rust-toolchain
+    if version == "" {
+        // Get a file
+        let url = format!("https://raw.githubusercontent.com/{}/{}/master/rust-toolchain", user, repo);
+        version = reqwest::get(url.as_str())?.text()?.trim().to_string();
+        debug!("version from rust-toolchain: '{}'", version);
+    }
+    return Ok(version.to_string());
+}
+
+pub fn version_from_cargo(cargo: String) -> String {
+    let re = Regex::new("^\\s*target\\s*[\"'](.*?)[\"']").unwrap();
+    match re.captures(&cargo) {
+        Some(caps) => caps.get(1).map_or("", |m| m.as_str()),
+        None => ""
+    }.to_string()
+}
+
+pub fn colour(version: &String) -> String {
     // Check version and set colour    
     match version.as_ref() {
         "1.24.1"         => "brightgreen",
