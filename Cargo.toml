@@ -5,13 +5,10 @@ target = "1.24.1"
 authors = ["James Smith <james@floppy.org.uk>"]
 
 [dependencies]
-iron = "0.5.*"
-router = "*"
-staticfile = "*"
-futures = "0.1"
-hyper = "0.11"
-hyper-rustls = "*"
-tokio-core = "0.1"
+iron = "0.5.1"
+router = "0.5.1"
+staticfile = "0.4.0"
 regex = "*"
 log = "0.3"
 env_logger = "0.3"
+reqwest = "^0.8.0"

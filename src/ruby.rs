@@ -1,27 +1,27 @@
 use regex::Regex;
-use https;
+use reqwest;
 
-pub fn detected(user: &String, repo: &String) -> bool {
-    let url = format!("https://api.github.com/{}/{}/languages", user, repo);
-    let gemfile = https::get(url);
-    return gemfile != "";
+pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
+    let url = format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo);
+    let resp = reqwest::get(url.as_str())?;
+    return Ok(resp.status().is_success());
 }
 
-pub fn version(user: &String, repo: &String) -> String {
+pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     let mut version = "unknown".to_string();
     // Get ruby version from Gemfile
     let url = format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo);
-    let gemfile = https::get(url);
+    let gemfile = reqwest::get(url.as_str())?.text()?;
     version = version_from_gemfile(gemfile);
     debug!("version from Gemfile: '{}'", version);    
     // fall back to .ruby-version
     if version == "" {
         // Get a file
         let url = format!("https://raw.githubusercontent.com/{}/{}/master/.ruby-version", user, repo);
-        version = String::from(https::get(url).trim());
+        version = reqwest::get(url.as_str())?.text()?.trim().to_string();
         debug!("version from .ruby-version: '{}'", version);
     }
-    return version.to_string();
+    return Ok(version.to_string());
 }
 
 pub fn colour(version: &String) -> String {
@@ -44,7 +44,6 @@ pub fn version_from_gemfile(gemfile: String) -> String {
         None => ""
     }.to_string()
 }
-
 
 #[cfg(test)]
 mod tests {

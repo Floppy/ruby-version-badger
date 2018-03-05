@@ -15,9 +15,9 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
     let mut colour = "lightgray".to_string();
 
     // Detect language
-    if ruby::detected(&user, &repo) {
+    if ruby::detected(&user, &repo).unwrap() {
         language = "ruby".to_string();
-        version = ruby::version(&user, &repo);
+        version = ruby::version(&user, &repo).unwrap();
         colour = ruby::colour(&version);
     }
 
