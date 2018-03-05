@@ -4,6 +4,7 @@ use iron::modifiers::Redirect;
 use router::Router;
 use ruby;
 use rust;
+use node;
 
 pub fn github(req: &mut Request) -> IronResult<Response> {
     
@@ -25,6 +26,11 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
         language = "rust".to_string();
         version = rust::version(&user, &repo).unwrap();
         colour = rust::colour(&version);
+    }
+    else if node::detected(&user, &repo).unwrap() {
+        language = "node".to_string();
+        version = node::version(&user, &repo).unwrap();
+        colour =  node::colour(&version);
     }
 
     // Create URL (without dashes in the version)

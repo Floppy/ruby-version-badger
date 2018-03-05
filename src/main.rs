@@ -12,6 +12,7 @@ mod server;
 mod handlers;
 mod ruby;
 mod rust;
+mod node;
 
 fn main() {
     env_logger::init();
