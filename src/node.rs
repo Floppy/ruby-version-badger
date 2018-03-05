@@ -30,6 +30,7 @@ pub fn colour(version: &String) -> String {
     match version.as_ref() {
         "9.7.1"          => "brightgreen",
         "8.9.4"          => "brightgreen",
+        "6.13.0"         => "yellow",
         ""               => "lightgray",
         "404: Not Found" => "lightgray",
         _                => "red",
