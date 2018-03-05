@@ -2,7 +2,9 @@ use regex::Regex;
 use https;
 
 pub fn detected(user: &String, repo: &String) -> bool {
-    true
+    let url = format!("https://api.github.com/{}/{}/languages", user, repo);
+    let gemfile = https::get(url);
+    return gemfile != "";
 }
 
 pub fn version(user: &String, repo: &String) -> String {
