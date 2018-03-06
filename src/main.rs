@@ -10,6 +10,7 @@ extern crate reqwest;
 mod config;
 mod server;
 mod handlers;
+mod github;
 mod ruby;
 mod rust;
 mod node;

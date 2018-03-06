@@ -1,10 +1,14 @@
 use regex::Regex;
+use github;
 use reqwest;
 
 pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
-    let url = format!("https://raw.githubusercontent.com/{}/{}/master/package.json", user, repo);
-    let resp = reqwest::get(url.as_str())?;
-    return Ok(resp.status().is_success());
+    return github::exists(
+        user, 
+        repo, 
+        &"master".to_string(), 
+        &"package.json".to_string()
+    );
 }
 
 pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
