@@ -11,8 +11,8 @@ pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     let mut version = "unknown".to_string();
     // Get ruby version from Gemfile
     let url = format!("https://raw.githubusercontent.com/{}/{}/master/Cargo.toml", user, repo);
-    let cargo = reqwest::get(url.as_str())?.text()?;
-    version = version_from_cargo(cargo);
+    let file = reqwest::get(url.as_str())?.text()?;
+    version = version_from_cargo(file);
     debug!("version from Cargo.toml: '{}'", version);    
     // fall back to rust-toolchain
     if version == "" {
@@ -24,9 +24,9 @@ pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     return Ok(version.to_string());
 }
 
-pub fn version_from_cargo(cargo: String) -> String {
+pub fn version_from_cargo(file: String) -> String {
     let re = Regex::new("^\\s*target\\s*[\"'](.*?)[\"']").unwrap();
-    match re.captures(&cargo) {
+    match re.captures(&file) {
         Some(caps) => caps.get(1).map_or("", |m| m.as_str()),
         None => ""
     }.to_string()

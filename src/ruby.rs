@@ -11,8 +11,8 @@ pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     let mut version = "unknown".to_string();
     // Get ruby version from Gemfile
     let url = format!("https://raw.githubusercontent.com/{}/{}/master/Gemfile", user, repo);
-    let gemfile = reqwest::get(url.as_str())?.text()?;
-    version = version_from_gemfile(gemfile);
+    let file = reqwest::get(url.as_str())?.text()?;
+    version = version_from_gemfile(file);
     debug!("version from Gemfile: '{}'", version);    
     // fall back to .ruby-version
     if version == "" {
@@ -37,9 +37,9 @@ pub fn colour(version: &String) -> String {
     }.to_string()
 }
 
-pub fn version_from_gemfile(gemfile: String) -> String {
+pub fn version_from_gemfile(file: String) -> String {
     let re = Regex::new("^\\s*ruby\\s*[\"'](.*?)[\"']").unwrap();
-    match re.captures(&gemfile) {
+    match re.captures(&file) {
         Some(caps) => caps.get(1).map_or("", |m| m.as_str()),
         None => ""
     }.to_string()
