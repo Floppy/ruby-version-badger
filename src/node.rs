@@ -10,6 +10,9 @@ pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
         &"package.json".to_string()
     );
 }
+pub fn name() -> String {
+    return "rust".to_string();
+}
 
 pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     let mut version = "unknown".to_string();

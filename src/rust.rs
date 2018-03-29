@@ -11,6 +11,10 @@ pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
     );
 }
 
+pub fn name() -> String {
+    return "rust".to_string();
+}
+
 pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     let mut version = "unknown".to_string();
     // Get ruby version from Gemfile

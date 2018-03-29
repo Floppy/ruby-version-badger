@@ -18,17 +18,17 @@ pub fn github(req: &mut Request) -> IronResult<Response> {
 
     // Detect language
     if ruby::detected(&user, &repo).unwrap() {
-        language = "ruby".to_string();
+        language = ruby::name();
         version = ruby::version(&user, &repo).unwrap();
         colour = ruby::colour(&version);
     }
     else if rust::detected(&user, &repo).unwrap() {
-        language = "rust".to_string();
+        language = rust::name();
         version = rust::version(&user, &repo).unwrap();
         colour = rust::colour(&version);
     }
     else if node::detected(&user, &repo).unwrap() {
-        language = "node".to_string();
+        language = node::name();
         version = node::version(&user, &repo).unwrap();
         colour =  node::colour(&version);
     }
