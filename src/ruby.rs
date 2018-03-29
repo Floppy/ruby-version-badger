@@ -29,10 +29,10 @@ pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
 pub fn colour(version: &String) -> String {
     // Check version and set colour    
     match version.as_ref() {
-        "2.5.0"          => "brightgreen",
-        "2.4.3"          => "yellow",
-        "2.3.6"          => "yellow",
-        "2.2.9"          => "orange",
+        "2.5.1"          => "brightgreen",
+        "2.4.4"          => "yellow",
+        "2.3.7"          => "yellow",
+        "2.2.10"          => "orange",
         ""               => "lightgray",
         "404: Not Found" => "lightgray",
         _                => "red",
