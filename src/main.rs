@@ -6,6 +6,7 @@ extern crate router;
 extern crate staticfile;
 extern crate regex;
 extern crate reqwest;
+extern crate yaml_rust;
 
 mod config;
 mod server;
