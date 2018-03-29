@@ -15,7 +15,7 @@ pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     let mut version = "unknown".to_string();
     // Get ruby version from Gemfile
     let file = github::get(user, repo, &"master".to_string(), &"Cargo.toml".to_string());
-    version = version_from_cargo(file);
+    version = version_from_cargo(file.unwrap());
     debug!("version from Cargo.toml: '{}'", version);    
     // fall back to rust-toolchain
     if version == "" {
@@ -50,11 +50,11 @@ mod tests {
     
     #[test]
     fn deprecated_versions_are_red() {
-        assert_eq!("red", rust::colour(String::from("1.18.0")));
+        assert_eq!("red", rust::colour(&String::from("1.18.0")));
     }
 
     #[test]
     fn current_versions_are_green() {
-        assert_eq!("brightgreen", rust::colour(String::from("1.25.0")));
+        assert_eq!("brightgreen", rust::colour(&String::from("1.25.0")));
     }
 }

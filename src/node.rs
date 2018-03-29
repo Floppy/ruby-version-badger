@@ -15,7 +15,7 @@ pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     let mut version = "unknown".to_string();
     // Get ruby version from Gemfile
     let file = github::get(user, repo, &"master".to_string(), &"package.json".to_string());
-    version = version_from_package_json(file);
+    version = version_from_package_json(file.unwrap());
     debug!("version from package.json: '{}'", version);    
     return Ok(version.to_string());
 }
