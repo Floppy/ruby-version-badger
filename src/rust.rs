@@ -14,15 +14,13 @@ pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
 pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     let mut version = "unknown".to_string();
     // Get ruby version from Gemfile
-    let url = format!("https://raw.githubusercontent.com/{}/{}/master/Cargo.toml", user, repo);
-    let file = reqwest::get(url.as_str())?.text()?;
+    let file = github::get(user, repo, &"master".to_string(), &"Cargo.toml".to_string());
     version = version_from_cargo(file);
     debug!("version from Cargo.toml: '{}'", version);    
     // fall back to rust-toolchain
     if version == "" {
         // Get a file
-        let url = format!("https://raw.githubusercontent.com/{}/{}/master/rust-toolchain", user, repo);
-        version = reqwest::get(url.as_str())?.text()?.trim().to_string();
+        version = github::get(user, repo, &"master".to_string(), &"rust-toolchain".to_string()).unwrap().trim().to_string();
         debug!("version from rust-toolchain: '{}'", version);
     }
     return Ok(version.to_string());
