@@ -39,7 +39,7 @@ pub fn version_from_cargo(file: String) -> String {
 pub fn colour(version: &String) -> String {
     // Check version and set colour    
     match version.as_ref() {
-        "1.24.1"         => "brightgreen",
+        "1.25.0"         => "brightgreen",
         ""               => "lightgray",
         "404: Not Found" => "lightgray",
         _                => "red",
