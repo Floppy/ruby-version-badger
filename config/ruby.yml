@@ -3,5 +3,5 @@ latest:
 supported:
 - 2.4.4
 - 2.3.7
-warning:
+maintenance:
 - 2.2.10

@@ -1,0 +1,7 @@
+latest:
+- 9.10.0
+supported:
+- 8.11.0
+- 6.14.0
+maintenance:
+- 4.9.0
