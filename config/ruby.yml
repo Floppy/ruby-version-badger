@@ -1,0 +1,7 @@
+latest:
+- 2.5.1
+supported:
+- 2.4.4
+- 2.3.7
+warning:
+- 2.2.10
