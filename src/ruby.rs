@@ -58,16 +58,16 @@ mod tests {
 
     #[test]
     fn current_versions_are_green() {
-        assert_eq!("brightgreen", ruby::colour(&String::from("2.5.0")));
+        assert_eq!("brightgreen", ruby::colour(&String::from("2.5.1")));
     }
 
     #[test]
     fn supported_versions_are_yellow() {
-        assert_eq!("yellow", ruby::colour(&String::from("2.3.6")));
+        assert_eq!("yellow", ruby::colour(&String::from("2.3.7")));
     }
 
     #[test]
     fn ending_versions_are_orange() {
-        assert_eq!("orange", ruby::colour(&String::from("2.2.9")));
+        assert_eq!("orange", ruby::colour(&String::from("2.2.10")));
     }
 }
