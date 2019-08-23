@@ -678,7 +678,7 @@ dependencies = [
  "reqwest 0.8.5 (registry+https://github.com/rust-lang/crates.io-index)",
  "router 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "staticfile 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "yaml-rust 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "yaml-rust 0.4.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -1045,7 +1045,7 @@ dependencies = [
 
 [[package]]
 name = "yaml-rust"
-version = "0.4.0"
+version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "linked-hash-map 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1179,4 +1179,4 @@ dependencies = [
 "checksum winapi-i686-pc-windows-gnu 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "ac3b87c63620426dd9b991e5ce0329eff545bccbbb34f3be09ff6fb6ab51b7b6"
 "checksum winapi-x86_64-pc-windows-gnu 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
 "checksum ws2_32-sys 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "d59cefebd0c892fa2dd6de581e937301d8552cb44489cdff035c6187cb63fa5e"
-"checksum yaml-rust 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "57ab38ee1a4a266ed033496cf9af1828d8d6e6c1cfa5f643a2809effcae4d628"
+"checksum yaml-rust 0.4.1 (registry+https://github.com/rust-lang/crates.io-index)" = "fe0fad48adbecafa9588846b38af3f015ccaef0a79d92f9b2892dd310aa9f9e1"
