@@ -1,7 +1,8 @@
 #[macro_use] extern crate log;
-extern crate env_logger;    
-    
+extern crate env_logger;
+
 extern crate iron;
+extern crate mount;
 extern crate router;
 extern crate staticfile;
 extern crate regex;
