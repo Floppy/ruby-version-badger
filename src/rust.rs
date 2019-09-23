@@ -4,9 +4,9 @@ use reqwest;
 
 pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
     return github::exists(
-        user, 
-        repo, 
-        &"master".to_string(), 
+        user,
+        repo,
+        &"master".to_string(),
         &"Cargo.toml".to_string()
     );
 }
@@ -20,7 +20,7 @@ pub fn version(user: &String, repo: &String) -> Result<String, reqwest::Error> {
     // Get ruby version from Gemfile
     let file = github::get(user, repo, &"master".to_string(), &"Cargo.toml".to_string());
     version = version_from_cargo(file.unwrap());
-    debug!("version from Cargo.toml: '{}'", version);    
+    debug!("version from Cargo.toml: '{}'", version);
     // fall back to rust-toolchain
     if version == "" {
         // Get a file
@@ -39,9 +39,9 @@ pub fn version_from_cargo(file: String) -> String {
 }
 
 pub fn colour(version: &String) -> String {
-    // Check version and set colour    
+    // Check version and set colour
     match version.as_ref() {
-        "1.25.0"         => "brightgreen",
+        "1.37.0"         => "brightgreen",
         ""               => "lightgray",
         "404: Not Found" => "lightgray",
         _                => "red",
@@ -51,7 +51,7 @@ pub fn colour(version: &String) -> String {
 #[cfg(test)]
 mod tests {
     use rust;
-    
+
     #[test]
     fn deprecated_versions_are_red() {
         assert_eq!("red", rust::colour(&String::from("1.18.0")));
@@ -59,6 +59,6 @@ mod tests {
 
     #[test]
     fn current_versions_are_green() {
-        assert_eq!("brightgreen", rust::colour(&String::from("1.25.0")));
+        assert_eq!("brightgreen", rust::colour(&String::from("1.37.0")));
     }
 }
