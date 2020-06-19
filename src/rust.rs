@@ -1,5 +1,5 @@
 use regex::Regex;
-use github;
+use crate::github;
 use reqwest;
 
 pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
@@ -50,7 +50,7 @@ pub fn colour(version: &String) -> String {
 
 #[cfg(test)]
 mod tests {
-    use rust;
+    use crate::rust;
 
     #[test]
     fn deprecated_versions_are_red() {

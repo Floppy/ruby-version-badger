@@ -1,5 +1,5 @@
 use regex::Regex;
-use github;
+use crate::github;
 use reqwest;
 
 pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {

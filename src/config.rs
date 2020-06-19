@@ -18,9 +18,9 @@ pub fn language(lang: String) -> Result<yaml::Yaml, Error> {
 
 #[cfg(test)]
 mod tests {
-    use config;
+    use crate::config;
     use std::env;
-    
+
     #[test]
     fn default_to_port_3k() {
         assert_eq!("3000", config::port());

@@ -1,5 +1,5 @@
 use regex::Regex;
-use github;
+use crate::github;
 use reqwest;
 
 pub fn detected(user: &String, repo: &String) -> Result<bool, reqwest::Error> {
@@ -52,7 +52,7 @@ pub fn version_from_gemfile(file: String) -> String {
 
 #[cfg(test)]
 mod tests {
-    use ruby;
+    use crate::ruby;
 
     #[test]
     fn deprecated_versions_are_red() {

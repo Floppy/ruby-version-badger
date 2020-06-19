@@ -3,8 +3,8 @@ use mount::Mount;
 use router::Router;
 use staticfile::Static;
 use std::path::Path;
-use config;
-use handlers;
+use crate::config;
+use crate::handlers;
 
 pub fn serve() {
     let interface = format!("0.0.0.0:{}", config::port());
