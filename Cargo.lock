@@ -179,7 +179,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "futures-io"
-version = "0.3.6"
+version = "0.3.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -201,7 +201,7 @@ version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "futures-core 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
- "futures-io 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "futures-io 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "futures-task 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "memchr 2.3.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "pin-project 0.4.27 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1450,7 +1450,7 @@ dependencies = [
 "checksum fuchsia-zircon-sys 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)" = "3dcaa9ae7725d12cdb85b3ad99a434db70b468c09ded17e012d86b5c1010f7a7"
 "checksum futures-channel 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "a7a4d35f7401e948629c9c3d6638fb9bf94e0b2121e96c3b428cc4e631f3eb74"
 "checksum futures-core 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "d674eaa0056896d5ada519900dbf97ead2e46a7b6621e8160d79e2f2e1e2784b"
-"checksum futures-io 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "5fc94b64bb39543b4e432f1790b6bf18e3ee3b74653c5449f63310e9a74b123c"
+"checksum futures-io 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)" = "6e1798854a4727ff944a7b12aa999f58ce7aa81db80d2dfaaf2ba06f065ddd2b"
 "checksum futures-sink 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)" = "0e3ca3f17d6e8804ae5d3df7a7d35b2b3a6fe89dac84b31872720fc3060a0b11"
 "checksum futures-task 0.3.7 (registry+https://github.com/rust-lang/crates.io-index)" = "96d502af37186c4fef99453df03e374683f8a1eec9dcc1e66b3b82dc8278ce3c"
 "checksum futures-util 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "8a894a0acddba51a2d49a6f4263b1e64b8c579ece8af50fa86503d52cd1eea34"
