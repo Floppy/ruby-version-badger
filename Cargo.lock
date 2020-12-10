@@ -936,7 +936,7 @@ dependencies = [
  "wasm-bindgen 0.2.69 (registry+https://github.com/rust-lang/crates.io-index)",
  "wasm-bindgen-futures 0.4.19 (registry+https://github.com/rust-lang/crates.io-index)",
  "wasm-bindgen-test 0.3.18 (registry+https://github.com/rust-lang/crates.io-index)",
- "web-sys 0.3.45 (registry+https://github.com/rust-lang/crates.io-index)",
+ "web-sys 0.3.46 (registry+https://github.com/rust-lang/crates.io-index)",
  "winreg 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -1352,7 +1352,7 @@ dependencies = [
  "cfg-if 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "js-sys 0.3.46 (registry+https://github.com/rust-lang/crates.io-index)",
  "wasm-bindgen 0.2.69 (registry+https://github.com/rust-lang/crates.io-index)",
- "web-sys 0.3.45 (registry+https://github.com/rust-lang/crates.io-index)",
+ "web-sys 0.3.46 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -1405,7 +1405,7 @@ dependencies = [
 
 [[package]]
 name = "web-sys"
-version = "0.3.45"
+version = "0.3.46"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "js-sys 0.3.46 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1641,7 +1641,7 @@ dependencies = [
 "checksum wasm-bindgen-shared 0.2.69 (registry+https://github.com/rust-lang/crates.io-index)" = "7e7811dd7f9398f14cc76efd356f98f03aa30419dea46aa810d71e819fc97158"
 "checksum wasm-bindgen-test 0.3.18 (registry+https://github.com/rust-lang/crates.io-index)" = "34d1cdc8b98a557f24733d50a1199c4b0635e465eecba9c45b214544da197f64"
 "checksum wasm-bindgen-test-macro 0.3.18 (registry+https://github.com/rust-lang/crates.io-index)" = "e8fb9c67be7439ee8ab1b7db502a49c05e51e2835b66796c705134d9b8e1a585"
-"checksum web-sys 0.3.45 (registry+https://github.com/rust-lang/crates.io-index)" = "4bf6ef87ad7ae8008e15a355ce696bed26012b7caa21605188cfd8214ab51e2d"
+"checksum web-sys 0.3.46 (registry+https://github.com/rust-lang/crates.io-index)" = "222b1ef9334f92a21d3fb53dc3fd80f30836959a90f9274a626d7e06315ba3c3"
 "checksum winapi 0.2.8 (registry+https://github.com/rust-lang/crates.io-index)" = "167dc9d6949a9b857f3451275e911c3f44255842c1f7a76f33c55103a909087a"
 "checksum winapi 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)" = "8093091eeb260906a183e6ae1abdba2ef5ef2257a21801128899c3fc699229c6"
 "checksum winapi-build 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "2d315eee3b34aca4797b2da6b13ed88266e6d612562a0c46390af8299fc699bc"
