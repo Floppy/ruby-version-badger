@@ -652,7 +652,7 @@ dependencies = [
 
 [[package]]
 name = "pin-project-lite"
-version = "0.2.1"
+version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -885,7 +885,7 @@ dependencies = [
  "mime 0.3.14 (registry+https://github.com/rust-lang/crates.io-index)",
  "native-tls 0.2.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "percent-encoding 2.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "pin-project-lite 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pin-project-lite 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 1.0.118 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_urlencoded 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "tokio 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1102,7 +1102,7 @@ dependencies = [
  "memchr 2.3.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "mio 0.7.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "num_cpus 1.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "pin-project-lite 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pin-project-lite 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -1120,7 +1120,7 @@ version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "futures-core 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
- "pin-project-lite 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pin-project-lite 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "tokio 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -1133,7 +1133,7 @@ dependencies = [
  "futures-core 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "futures-sink 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.4.11 (registry+https://github.com/rust-lang/crates.io-index)",
- "pin-project-lite 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pin-project-lite 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "tokio 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "tokio-stream 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -1149,7 +1149,7 @@ version = "0.1.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "cfg-if 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "pin-project-lite 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "pin-project-lite 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "tracing-core 0.1.17 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -1476,7 +1476,7 @@ dependencies = [
 "checksum pin-project 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "5a83804639aad6ba65345661744708855f9fbcb71176ea8d28d05aeb11d975e7"
 "checksum pin-project-internal 0.4.27 (registry+https://github.com/rust-lang/crates.io-index)" = "65ad2ae56b6abe3a1ee25f15ee605bacadb9a764edaba9c2bf4103800d4a1895"
 "checksum pin-project-internal 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "b7bcc46b8f73443d15bc1c5fecbb315718491fa9187fa483f0e359323cde8b3a"
-"checksum pin-project-lite 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "e36743d754ccdf9954c2e352ce2d4b106e024c814f6499c2dadff80da9a442d8"
+"checksum pin-project-lite 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)" = "439697af366c49a6d0a010c56a0d97685bc140ce0d377b13a2ea2aa42d64a827"
 "checksum pin-utils 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 "checksum pkg-config 0.3.19 (registry+https://github.com/rust-lang/crates.io-index)" = "3831453b3449ceb48b6d9c7ad7c96d5ea673e9b470a1dc578c2ce6521230884c"
 "checksum plugin 0.2.6 (registry+https://github.com/rust-lang/crates.io-index)" = "1a6a0dc3910bc8db877ffed8e457763b317cf880df4ae19109b9f77d277cf6e0"
