@@ -123,7 +123,7 @@ dependencies = [
  "atty 0.2.14 (registry+https://github.com/rust-lang/crates.io-index)",
  "humantime 2.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.4.11 (registry+https://github.com/rust-lang/crates.io-index)",
- "regex 1.4.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "regex 1.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "termcolor 1.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -842,7 +842,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "regex"
-version = "1.4.2"
+version = "1.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "aho-corasick 0.7.15 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -920,7 +920,7 @@ dependencies = [
  "iron 0.6.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.4.11 (registry+https://github.com/rust-lang/crates.io-index)",
  "mount 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "regex 1.4.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "regex 1.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "reqwest 0.11.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "router 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "staticfile 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1499,7 +1499,7 @@ dependencies = [
 "checksum rand_xorshift 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "cbf7e9e623549b0e21f6e97cf8ecf247c1a8fd2e8a992ae265314300b2455d5c"
 "checksum rdrand 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "678054eb77286b51581ba43620cc911abf02758c91f93f479767aed0f90458b2"
 "checksum redox_syscall 0.1.57 (registry+https://github.com/rust-lang/crates.io-index)" = "41cc0f7e4d5d4544e8861606a285bb08d3e70712ccc7d2b84d7c0ccfaf4b05ce"
-"checksum regex 1.4.2 (registry+https://github.com/rust-lang/crates.io-index)" = "38cf2c13ed4745de91a5eb834e11c00bcc3709e773173b2ce4c56c9fbde04b9c"
+"checksum regex 1.4.3 (registry+https://github.com/rust-lang/crates.io-index)" = "d9251239e129e16308e70d853559389de218ac275b515068abc96829d05b948a"
 "checksum regex-syntax 0.6.22 (registry+https://github.com/rust-lang/crates.io-index)" = "b5eb417147ba9860a96cfe72a0b93bf88fee1744b5636ec99ab20c1aa9376581"
 "checksum remove_dir_all 0.5.3 (registry+https://github.com/rust-lang/crates.io-index)" = "3acd125665422973a33ac9d3dd2df85edad0f4ae9b00dafb1a05e43a9f5ef8e7"
 "checksum reqwest 0.11.0 (registry+https://github.com/rust-lang/crates.io-index)" = "fd281b1030aa675fb90aa994d07187645bb3c8fc756ca766e7c3070b439de9de"
