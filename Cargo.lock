@@ -176,7 +176,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "futures-task"
-version = "0.3.9"
+version = "0.3.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "once_cell 1.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -189,7 +189,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "futures-core 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "futures-io 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
- "futures-task 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
+ "futures-task 0.3.10 (registry+https://github.com/rust-lang/crates.io-index)",
  "memchr 2.3.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "pin-project 0.4.27 (registry+https://github.com/rust-lang/crates.io-index)",
  "pin-utils 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1411,7 +1411,7 @@ dependencies = [
 "checksum futures-core 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "d674eaa0056896d5ada519900dbf97ead2e46a7b6621e8160d79e2f2e1e2784b"
 "checksum futures-io 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)" = "e37c1a51b037b80922864b8eed90692c5cd8abd4c71ce49b77146caa47f3253b"
 "checksum futures-sink 0.3.10 (registry+https://github.com/rust-lang/crates.io-index)" = "c72d188479368953c6c8c7140e40d7a4401674ab3b98a41e60e515d6cbdbe5de"
-"checksum futures-task 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)" = "a92a0843a2ff66823a8f7c77bffe9a09be2b64e533562c412d63075643ec0038"
+"checksum futures-task 0.3.10 (registry+https://github.com/rust-lang/crates.io-index)" = "08944cea9021170d383287169859c0ca8147d9ec285978393109954448f33cc7"
 "checksum futures-util 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "8a894a0acddba51a2d49a6f4263b1e64b8c579ece8af50fa86503d52cd1eea34"
 "checksum getrandom 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "4060f4657be78b8e766215b02b18a2e862d83745545de804638e2b545e81aee6"
 "checksum h2 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)" = "6b67e66362108efccd8ac053abafc8b7a8d86a37e6e48fc4f6f7485eb5e9e6a5"
