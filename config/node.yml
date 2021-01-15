@@ -1,7 +1,8 @@
 url: https://github.com/nodejs/Release
 latest:
-- 12.10.0
-- 10.16.3
+- 15.6.0
+- 14.15.4
 supported:
 maintenance:
-- 8.16.1
+- 12.20.1
+- 10.23.1
