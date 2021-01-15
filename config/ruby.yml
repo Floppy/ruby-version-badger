@@ -1,7 +1,8 @@
 url: https://www.ruby-lang.org/en/downloads/
 latest:
-- 2.6.4
+- 3.0.0
 supported:
-- 2.5.6
+- 2.7.2
+- 2.6.6
 maintenance:
-- 2.4.7
+- 2.5.8
